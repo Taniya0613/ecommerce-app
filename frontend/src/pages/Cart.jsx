@@ -65,17 +65,20 @@ const Cart = () => {
                 </div>
               </div>
               <input
-                onChange={(e) =>
-                  e.target.value === "" || e.target.value === "0"
-                    ? null
-                    : updateQuantity(
-                        item._id,
-                        item.size,
-                        Number(e.target.value))}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value === "" || parseInt(value) < 1) {
+                    updateQuantity(item._id, item.size, 1);
+                    e.target.value = 1;
+                  } else {
+                    updateQuantity(item._id, item.size, parseInt(value));
+                  }
+                }}
                 className="border w-16 h-8 text-center text-sm px-1 py-0.5"
                 type="number"
                 min={1}
-                defaultValue={item.quantity}/>
+                defaultValue={item.quantity}
+              />
 
               <img
                 onClick={() => updateQuantity(item._id, item.size, 0)}
