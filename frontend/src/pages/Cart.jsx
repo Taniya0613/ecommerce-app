@@ -92,9 +92,9 @@ const Cart = () => {
       </div>
 
       <div className="flex justify-end my-20">
-        <div className="w-full sm:w-[450px]">
+        <div className="w-full sm:w-[450px] flex flex-col items-end">
           <CartTotal />
-          <button className="bg-black text-white text-sm mt-5 px-8 py-3">
+          <button className="bg-black text-white text-sm my-8 px-8 py-3">
             PROCEED TO CHECKOUT
           </button>
         </div>
