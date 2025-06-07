@@ -8,7 +8,7 @@ const PlaceOrder = () => {
   const [method, setMethod] = useState("cod");
 
   return (
-    <div className="mx-auto max-w-7xl px-5 flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t lg:gap-80">
+    <div className="mx-auto max-w-7xl px-5 flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t lg:gap-x-96">
       {/* ----------------LEFT SIDE---------------------- */}
       <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
         <div className="text-xl sm:text-2xl my-3">
