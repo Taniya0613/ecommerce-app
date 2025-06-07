@@ -3,6 +3,7 @@ import { ShopContext } from "../context/ShopContext";
 import { useState, useEffect } from "react";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
+import CartTotal from "../components/CartTotal";
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity } =
@@ -65,30 +66,36 @@ const Cart = () => {
                 </div>
               </div>
               <input
-                onChange={(e) => {
-                  const value = e.target.value;
-                  if (value === "" || parseInt(value) < 1) {
-                    updateQuantity(item._id, item.size, 1);
-                    e.target.value = 1;
-                  } else {
-                    updateQuantity(item._id, item.size, parseInt(value));
-                  }
-                }}
+                onChange={(e) =>
+                  e.target.value === "" || e.target.value === "0"
+                    ? null
+                    : updateQuantity(
+                        item._id,
+                        item.size,
+                        Number(e.target.value)
+                      )
+                }
                 className="border w-16 h-8 text-center text-sm px-1 py-0.5"
                 type="number"
                 min={1}
                 defaultValue={item.quantity}
               />
-
               <img
                 onClick={() => updateQuantity(item._id, item.size, 0)}
                 className="w-4 mr-4 sm:w-5 cursor-pointer"
                 src={assets.bin_icon}
-                alt=""
-              />
+                alt=""/>
             </div>
           );
-        })}
+        })
+        }
+      </div>
+
+      <div className="flex justify-end my-20">
+        <div className="w-full sm:w-[450px]">
+        <CartTotal />
+        </div>
+
       </div>
     </div>
   );
