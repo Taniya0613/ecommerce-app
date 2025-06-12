@@ -113,6 +113,11 @@ const PlaceOrder = () => {
               </p>
             </div>
           </div>
+
+           <div className='w-full text-end mt-8'>
+            <button className='bg-black text-white px-16 py-3 text-sm'>PLACE ORDER</button>
+           </div>
+
         </div>
       </div>
     </div>
